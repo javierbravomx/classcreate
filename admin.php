@@ -148,14 +148,12 @@
                 <label for="asignatura_salon">Salón / Empresa</label>
                 <input type="text" class="form-control" id="asignatura_salon" placeholder="Salón / Empresa">
             </div>
-            <button id="insert" type="submit" class="btn btn-default" value="Enviar">Enviar</button>
-            <input id="block" type="submit" value="To Connect">
+            <input id="insert" type="submit" class="btn btn-default" value="Enviar">
         </form>
     </div>
     <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script type="text/javascript">
-
     $(document).ready(function()
     {
         $("#insert").click(function(){
@@ -208,17 +206,17 @@
                     data: dataString,
                     crossDomain: true,
                     cache: false,
-                    beforeSend: function(){ $("#block").val('Connecting...');},
+                    beforeSend: function(){ $("#insert").val('Conectando...');},
                     success: function(data){
                         if(data=="ok")
                         {
-                            alert("inserted");
-                            $("#block").val('Insert');
+                            alert("Insertado");
+                            $("#insert").val('Enviar');
                         }
                         else if(data=="error")
                         {
-                            alert("error");
-                            $("#block").val('Insert');
+                            alert("Error");
+                            $("#insert").val('Enviar');
                         }
                     }
                 });
