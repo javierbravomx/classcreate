@@ -36,6 +36,7 @@
                     <th>Hora Inicio</th>
                     <th>Hora Fin</th>
                     <th>Salón</th>
+					<th>Promedio</th>
                 </tr>
             </thead>
             <tbody id="asignatura-tabla">
@@ -64,6 +65,7 @@
 	        	var asignatura_hora_inicio=field.asignatura_hora_inicio;
 	        	var asignatura_hora_fin=field.asignatura_hora_fin;
 	        	var asignatura_salon=field.asignatura_salon;
+				var asignatura_promedio=field.asignatura_promedio;
                 var rows = "<tr>"
                 + "<td>" + asignatura_id + "</td>"
                 + "<td>" + asignatura_empresa + "</td>"
@@ -78,6 +80,7 @@
                 + "<td>" + asignatura_hora_inicio + "</td>"
                 + "<td>" + asignatura_hora_fin + "</td>"
                 + "<td>" + asignatura_salon + "</td>"
+				+ "<td>" + asignatura_promedio + "</td>"
                 + "</tr>";
                 $('#asignatura-tabla').append(rows);
 	        });

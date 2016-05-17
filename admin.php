@@ -122,6 +122,13 @@
                         </label>
                     </div>
                 </div>
+				<div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="dia" value="N/A">N/A
+                        </label>
+                    </div>
+                </div>
             </div>
             <div class="form-group">
                 <label for="asignatura_hora_inicio">Hora de Inicio</label>
@@ -135,6 +142,7 @@
                     <option value="17">17:00</option>
                     <option value="18">18:00</option>
                     <option value="20">20:00</option>
+					<option value="00">N/A</option>
                 </select>
             </div>
             <div class="form-group">
@@ -149,13 +157,31 @@
                     <option value="20">20:00</option>
                     <option value="21">21:00</option>
                     <option value="22">22:00</option>
+					<option value="00">N/A</option>
                 </select>
             </div>
-        </form>
             <div class="form-group">
                 <label for="asignatura_salon">Salón / Empresa</label>
                 <input type="text" class="form-control" id="asignatura_salon" placeholder="Salón / Empresa">
             </div>
+			<div class="form-group">
+				<label for="asignatura_promedio">Promedio</label>
+				<select class="form-control" id="asignatura_promedio">
+					<option value="" disabled selected>Seleccione una opción:</option>
+					<option value="8.0">8.0</option>
+					<option value="8.1">8.1</option>
+					<option value="8.2">8.2</option>
+					<option value="8.3">8.3</option>
+					<option value="8.4">8.4</option>
+					<option value="8.5">8.5</option>
+					<option value="8.6">8.6</option>
+					<option value="8.7">8.7</option>
+					<option value="8.8">8.8</option>
+					<option value="8.9">8.9</option>
+					<option value="9.0">9.0</option>
+					<option value="N/A">N/A</option>
+				</select>
+			</div>
             <input id="insert" type="submit" class="btn btn-default" value="Enviar">
         </form>
     </div>
@@ -179,6 +205,7 @@
             var asignatura_hora_inicio=$("#asignatura_hora_inicio option:selected").val();
             var asignatura_hora_fin=$("#asignatura_hora_fin option:selected").val();
             var asignatura_salon=$("#asignatura_salon").val();
+			var asignatura_promedio=$("#asignatura_promedio option:selected").val()
             var dataString=
             "asignatura_empresa="+asignatura_empresa+
             "&asignatura_carrera="+asignatura_carrera+
@@ -192,6 +219,7 @@
             "&asignatura_hora_inicio="+asignatura_hora_inicio+
             "&asignatura_hora_fin="+asignatura_hora_fin+
             "&asignatura_salon="+asignatura_salon+
+			"&asignatura_promedio="+asignatura_promedio+
             "&insert=";
             if(
                 $.trim(asignatura_empresa).length>0
@@ -206,6 +234,7 @@
                 & $.trim(asignatura_hora_inicio).length>0
                 & $.trim(asignatura_hora_fin).length>0
                 & $.trim(asignatura_salon).length>0
+				& $.trim(asignatura_promedio).length>0
             )
             {
                 $.ajax({
