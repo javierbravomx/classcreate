@@ -1,4 +1,9 @@
 body {
+    background: #2C4A52;
+}
+.main {
     background: #F4EBDB;
-    padding-top: 70px;
+}
+.thumbnail {
+    background-color: #F4EBDB;
 }

@@ -1,0 +1,24 @@
+[class$="-detalle"] {
+	display: none;
+}
+.featherlight .featherlight-content {
+    background: #F4EBDB;
+}
+.table-striped>tbody>tr:nth-of-type(odd) {
+    background: #8E9B97;
+}
+.featherlight-next span, .featherlight-previous span {
+    display: inline-block;
+    color: #2C4A52;
+}
+@-moz-document url-prefix() {
+    .featherlight-next span, .featherlight-previous span {
+        font-size: 40px;
+    }
+}
+.featherlight-next span {
+    right: -15%;
+}
+.featherlight-previous span {
+    left: -15%;
+}
