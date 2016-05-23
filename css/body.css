@@ -1,9 +1,14 @@
 body {
     background: #2C4A52;
+    font-family: 'Arial';
 }
 .main {
     background: #F4EBDB;
 }
 .thumbnail {
     background-color: #F4EBDB;
+    border: 0;
+    border-radius: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }

@@ -10,14 +10,6 @@
     <link rel="stylesheet" href="css/body.css">
 </head>
 <body>
-    <nav role="navigation" class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="http://fca.unam.mx">
-                </a>
-            </div>
-        </div>
-    </nav>
     <div class="container">
         <h1>Asignaturas Empresariales y Organizacionales</h1>
         <form>
