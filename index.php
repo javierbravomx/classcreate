@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Asignaturas Empresariales y Organizacionales</title>
+	<!--
+	*Importar las hojas de estilo de Bootstrap, jQuery UI, Featherlight, más las locales
+	-->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.min.css">
     <link href="//cdn.rawgit.com/noelboss/featherlight/1.4.0/release/featherlight.min.css" type="text/css" rel="stylesheet">
@@ -15,16 +18,28 @@
     <link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
+	<!--
+	*Inclusión del archivo del encabezado de la página
+	-->
     <?php
     include('php/header.php');
     ?>
+	<!--
+	*Contenedor principal de la página. Aquí se almacenará todas las asignaturas que estén registradas en la base de datos
+	-->
 	<div class="container main">
         <div class="row main-row">
 		</div>
 	</div>
+	<!--
+	*Inclusión del archivo del pié de la página
+	-->
     <?php
     include('php/footer.php');
     ?>
+	<!--
+	*Importar los scripts principales de jQuery, jQuery UI, jQuery Autocomplete Bootstrap, más Featherlight
+	-->
 	<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
@@ -34,10 +49,16 @@
     <script type="text/javascript">
 	$(document).ready(function()
 	{
+		/*
+		*Conexión a la base de datos. Cada valor se itera y se regresa en un arreglo de objetos en un formato tipo diccionario
+		*/
 		var url="http://rigel.fca.unam.mx/~li413008451/classcreateserver/database/json.php";
 		$.getJSON(url,function(result){
 			console.log(result);
 	        $.each(result, function(i, field){
+				/*
+				*Variables para cada propiedad del objeto de la asignatura
+				*/
                 var asignatura_id=field.asignatura_id;
 	        	var asignatura_empresa=field.asignatura_empresa;
                 var asignatura_titulo=field.asignatura_empresa;
@@ -54,89 +75,9 @@
 	        	var asignatura_salon=field.asignatura_salon;
 				var asignatura_promedio=field.asignatura_promedio;
 				var asignatura_img=field.asignatura_img;
+
                 if(asignatura_titulo.includes("1") || asignatura_titulo.includes("2")) {
                     asignatura_titulo = asignatura_titulo.slice(0,-2);
-                }
-                if(asignatura_carrera == "N/A") {
-                    asignatura_carrera = "";
-                }
-                if(asignatura_plan == "N/A") {
-                    asignatura_plan = "";
-                }
-                if(asignatura_semestre == "N/A") {
-                    asignatura_semestre = "";
-                }
-                if(asignatura_tipo == "N/A") {
-                    asignatura_tipo = "";
-                }
-                if(asignatura_cupo == "N/A") {
-                    asignatura_cupo = "";
-                }
-                if(asignatura_asignatura == "N/A") {
-                    asignatura_asignatura = "";
-                }
-                if(asignatura_dia == "N/A") {
-                    asignatura_dia = "";
-                }
-                if(asignatura_hora_inicio == "00") {
-                    asignatura_dia = "";
-                }
-                if(asignatura_hora_fin == "00") {
-                    asignatura_dia = "";
-                }
-                if(asignatura_salon == "N/A") {
-                    asignatura_salon = "";
-                }
-                if(asignatura_promedio == "N/A") {
-                    asignatura_promedio = "";
-                }
-                if(asignatura_tipo == "P") {
-                    asignatura_tipo = "Profesionalizante";
-                }
-                if(asignatura_tipo == "C") {
-                    asignatura_tipo = "Complementaria";
-                }
-                if(asignatura_carrera == "A") {
-                    asignatura_carrera = "Administración";
-                }
-                if(asignatura_carrera == "C") {
-                    asignatura_carrera = "Contaduría";
-                }
-                if(asignatura_carrera == "I") {
-                    asignatura_carrera = "Informática";
-                }
-                if(asignatura_carrera == "AC") {
-                    asignatura_carrera = "Administración y Contaduría";
-                }
-                if(asignatura_carrera == "ACI") {
-                    asignatura_carrera = "Administración, Contaduría e Informática";
-                }
-                if(asignatura_dia == "L") {
-                    asignatura_dia = "Lunes";
-                }
-                if(asignatura_dia == "LJ") {
-                    asignatura_dia = "Lunes / Jueves";
-                }
-                if(asignatura_dia == "LMC") {
-                    asignatura_dia = "Lunes / Miércoles";
-                }
-                if(asignatura_dia == "M") {
-                    asignatura_dia = "Martes";
-                }
-                if(asignatura_dia == "MC") {
-                    asignatura_dia = "Miércoles";
-                }
-                if(asignatura_dia == "MCV") {
-                    asignatura_dia = "Miércoles / Jueves";
-                }
-                if(asignatura_dia == "MJ") {
-                    asignatura_dia = "Martes / Jueves";
-                }
-                if(asignatura_dia == "J") {
-                    asignatura_dia = "Jueves";
-                }
-                if(asignatura_dia == "V") {
-                    asignatura_dia = "Viernes";
                 }
 				var rows =
                 '<a class="col-lg-1 col-md-2 col-sm-3 col-xs-4 thumbnail gallery"' + ' href=".' + asignatura_empresa.toLowerCase() + '-detalle">' +
@@ -177,7 +118,7 @@
                                     '</tr>' +
                                     '<tr>' +
                                         '<td>Hora:</td>' +
-                                        '<td>' + asignatura_hora_inicio + ":00 - " + asignatura_hora_fin + ':00</td>' +
+                                        '<td>' + asignatura_hora_inicio + '-' + asignatura_hora_fin + '</td>' +
                                     '</tr>' +
                                     '<tr>' +
                                         '<td>Carrera:</td>' +
@@ -488,7 +429,7 @@
         if($('#jueves_checkbox').is(':checked')) {
             var count = 0;
             $(".row a").each(function(){
-                if($(this).html().includes("jueves")) {
+                if($(this).html().includes('jueves')) {
                     if($('#martes_checkbox').is(':checked')) {
                         var count = 0;
                         $(".row a").each(function(){
@@ -1224,6 +1165,9 @@
     });
     </script>
     <script>
+	/*
+	*Función más un diccionario de palabras que utiliza el elemento de búsqueda
+	*/
     $(function() {
         var availableTags = [
             { value: "Actinver", label: "Actinver" },
@@ -1273,6 +1217,9 @@
             { value: "TOKS", label: "TOKS" },
             { value: "Unilever", label: "Unilever" }
         ];
+		/*
+		*El siguiente código es para iniciar la busqueda con autocompleción
+		*/
         $( "#filter" ).devbridgeAutocomplete({
             lookup: availableTags,
             onSelect: function (suggestion) {
