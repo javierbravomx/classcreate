@@ -135,8 +135,8 @@
                     asignatura_dia = "Viernes";
                 }
 				var rows =
-                '<a class="col-lg-1 col-md-2 col-sm-3 col-xs-4 thumbnail gallery"' + ' data-carrera="' + asignatura_carrera.toLowerCase() + '" href=".' + asignatura_empresa.toLowerCase() + '-detalle">' +
-				    '<img class="img-responsive" src="' + asignatura_img + '">' +
+                '<a class="col-lg-1 col-md-2 col-sm-3 col-xs-4 thumbnail gallery"' + ' href=".' + asignatura_empresa.toLowerCase() + '-detalle">' +
+				    '<img class="img-responsive"' +' data-carrera="' + asignatura_carrera.toLowerCase() + '" src="' + asignatura_img + '">' +
 				'</a>' +
 				'<div class="' + asignatura_empresa.toLowerCase() + '-detalle">' +
 			        '<div class="row">' +
@@ -228,16 +228,37 @@
             }
         });
     });
-
     $("input[type=checkbox]").click(function() {
-        var count2 = 0;
         if($('#administracion_checkbox').is(':checked')) {
+            var count = 0;
             $(".row a").each(function(){
-                if($(this).html().includes("am")) {
+                if($(this).html().includes("administración")) {
                     $(this).fadeIn();
                 } else {
                     $(this).fadeOut();
-                    count2++;
+                    count++;
+                }
+            });
+        }
+        if($('#contaduria_checkbox').is(':checked')) {
+            var count = 0;
+            $(".row a").each(function(){
+                if($(this).html().includes("contaduría")) {
+                    $(this).fadeIn();
+                } else {
+                    $(this).fadeOut();
+                    count++;
+                }
+            });
+        }
+        if($('#informatica_checkbox').is(':checked')) {
+            var count = 0;
+            $(".row a").each(function(){
+                if($(this).html().includes("informática")) {
+                    $(this).fadeIn();
+                } else {
+                    $(this).fadeOut();
+                    count++;
                 }
             });
         }
