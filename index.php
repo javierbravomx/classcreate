@@ -104,6 +104,9 @@
                 if(asignatura_carrera == "I") {
                     asignatura_carrera = "Informática";
                 }
+                if(asignatura_carrera == "AC") {
+                    asignatura_carrera = "Administración y Contaduría";
+                }
                 if(asignatura_carrera == "ACI") {
                     asignatura_carrera = "Administración, Contaduría e Informática";
                 }
@@ -228,12 +231,31 @@
             }
         });
     });
-    //Make nested ifs for all so that it can include them
     $("input[type=checkbox]").click(function() {
         if($('#administracion_checkbox').is(':checked')) {
             var count = 0;
             $(".row a").each(function(){
                 if($(this).html().includes("administración")) {
+                    if($('#contaduria_checkbox').is(':checked')) {
+                        var count = 0;
+                        $(".row a").each(function(){
+                            if($(this).html().includes("contaduría")) {
+                                $(this).fadeIn();
+                            } else {
+                                count++;
+                            }
+                        });
+                    }
+                    if($('#informatica_checkbox').is(':checked')) {
+                        var count = 0;
+                        $(".row a").each(function(){
+                            if($(this).html().includes("informática")) {
+                                $(this).fadeIn();
+                            } else {
+                                count++;
+                            }
+                        });
+                    }
                     $(this).fadeIn();
                 } else {
                     $(this).fadeOut();
@@ -245,6 +267,26 @@
             var count = 0;
             $(".row a").each(function(){
                 if($(this).html().includes("contaduría")) {
+                    if($('#administracion_checkbox').is(':checked')) {
+                        var count = 0;
+                        $(".row a").each(function(){
+                            if($(this).html().includes("administración")) {
+                                $(this).fadeIn();
+                            } else {
+                                count++;
+                            }
+                        });
+                    }
+                    if($('#informatica_checkbox').is(':checked')) {
+                        var count = 0;
+                        $(".row a").each(function(){
+                            if($(this).html().includes("informática")) {
+                                $(this).fadeIn();
+                            } else {
+                                count++;
+                            }
+                        });
+                    }
                     $(this).fadeIn();
                 } else {
                     $(this).fadeOut();
@@ -256,6 +298,26 @@
             var count = 0;
             $(".row a").each(function(){
                 if($(this).html().includes("informática")) {
+                    if($('#administracion_checkbox').is(':checked')) {
+                        var count = 0;
+                        $(".row a").each(function(){
+                            if($(this).html().includes("administración")) {
+                                $(this).fadeIn();
+                            } else {
+                                count++;
+                            }
+                        });
+                    }
+                    if($('#contaduria_checkbox').is(':checked')) {
+                        var count = 0;
+                        $(".row a").each(function(){
+                            if($(this).html().includes("contaduría")) {
+                                $(this).fadeIn();
+                            } else {
+                                count++;
+                            }
+                        });
+                    }
                     $(this).fadeIn();
                 } else {
                     $(this).fadeOut();
