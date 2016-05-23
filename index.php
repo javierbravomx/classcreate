@@ -228,6 +228,7 @@
             }
         });
     });
+    //Make nested ifs for all so that it can include them
     $("input[type=checkbox]").click(function() {
         if($('#administracion_checkbox').is(':checked')) {
             var count = 0;
