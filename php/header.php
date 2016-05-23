@@ -59,10 +59,25 @@
                         </span>
                     </a>
                     <ul class="dropdown-menu">
+                        <li><a><input id="3o_checkbox" type="checkbox">3°</a></li>
+                        <!--<li><a><input id="4o_checkbox" type="checkbox">4°</a></li>-->
                         <li><a><input id="5o_checkbox" type="checkbox">5°</a></li>
-                        <li><a><input id="6o_checkbox" type="checkbox">6°</a></li>
+                        <!--<li><a><input id="6o_checkbox" type="checkbox">6°</a></li>-->
                         <li><a><input id="7o_checkbox" type="checkbox">7°</a></li>
-                        <li><a><input id="8o_checkbox" type="checkbox">8°</a></li>
+                        <!--<li><a><input id="8o_checkbox" type="checkbox">8°</a></li>-->
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#tipo">
+                        Por Tipo
+                        <span class="caret">
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a><input id="prof_checkbox" type="checkbox">Profesionalizante</a></li>
+                        <li><a><input id="comp_checkbox" type="checkbox">Complementaria</a></li>
                     </ul>
                 </li>
             </ul>
@@ -81,7 +96,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <form class="navbar-form navbar-left" role="search">
-                    <div class="form-group">
+                    <div class="form-group" id="searchfield">
                         <input type="text" class="form-control text-input" id="filter" value="" placeholder="Buscar">
                     </div>
                 </form>
