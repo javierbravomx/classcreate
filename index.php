@@ -325,6 +325,7 @@
                 }
             });
         }
+        //if($('#administracion_checkbox').is(':checked') == false) {
     });
     </script>
 </body>
