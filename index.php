@@ -39,6 +39,7 @@
 	        $.each(result, function(i, field){
                 var asignatura_id=field.asignatura_id;
 	        	var asignatura_empresa=field.asignatura_empresa;
+                var asignatura_titulo=field.asignatura_empresa;
 	        	var asignatura_carrera=field.asignatura_carrera;
 	        	var asignatura_plan=field.asignatura_plan;
 	        	var asignatura_semestre=field.asignatura_semestre;
@@ -52,8 +53,8 @@
 	        	var asignatura_salon=field.asignatura_salon;
 				var asignatura_promedio=field.asignatura_promedio;
 				var asignatura_img=field.asignatura_img;
-                if(asignatura_empresa == "N/A") {
-                    asignatura_empresa = "";
+                if(asignatura_titulo.includes("1") || asignatura_titulo.includes("2")) {
+                    asignatura_titulo = asignatura_titulo.slice(0,-2);
                 }
                 if(asignatura_carrera == "N/A") {
                     asignatura_carrera = "";
@@ -89,10 +90,10 @@
                     asignatura_promedio = "";
                 }
                 if(asignatura_tipo == "P") {
-                    asignatura_promedio = "Profesionalizante";
+                    asignatura_tipo = "Profesionalizante";
                 }
                 if(asignatura_tipo == "C") {
-                    asignatura_promedio = "Complementaria";
+                    asignatura_tipo = "Complementaria";
                 }
                 if(asignatura_carrera == "A") {
                     asignatura_carrera = "Administración";
@@ -134,7 +135,7 @@
                     asignatura_dia = "Viernes";
                 }
 				var rows =
-                '<a class="col-lg-1 col-md-2 col-sm-3 col-xs-4 thumbnail gallery"' + 'href=".' + asignatura_empresa.toLowerCase() + '-detalle">' +
+                '<a class="col-lg-1 col-md-2 col-sm-3 col-xs-4 thumbnail gallery"' + ' data-carrera="' + asignatura_carrera.toLowerCase() + '" href=".' + asignatura_empresa.toLowerCase() + '-detalle">' +
 				    '<img class="img-responsive" src="' + asignatura_img + '">' +
 				'</a>' +
 				'<div class="' + asignatura_empresa.toLowerCase() + '-detalle">' +
@@ -142,7 +143,7 @@
 				        '<div class="col-sm-1">' +
 		                '</div>' +
                         '<div class="col-sm-7">' +
-                            '<h1>' + asignatura_empresa + '</h1>' +
+                            '<h1>' + asignatura_titulo + '</h1>' +
 	                        '<h3>' + asignatura_asignatura + '</h3>' +
 				        '</div>' +
                         '<div class="col-sm-3">' +
@@ -174,7 +175,7 @@
                                     '</tr>' +
                                     '<tr>' +
                                         '<td>Semestre:</td>' +
-                                        '<td>' + asignatura_semestre + '</td>' +
+                                        '<td>' + asignatura_semestre + 'º</td>' +
                                     '</tr>' +
                                     '<tr>' +
                                         '<td>Lugar:</td>' +
@@ -227,6 +228,20 @@
             }
         });
     });
-	</script>
+
+    $("input[type=checkbox]").click(function() {
+        var count2 = 0;
+        if($('#administracion_checkbox').is(':checked')) {
+            $(".row a").each(function(){
+                if($(this).html().includes("am")) {
+                    $(this).fadeIn();
+                } else {
+                    $(this).fadeOut();
+                    count2++;
+                }
+            });
+        }
+    });
+    </script>
 </body>
 </html>
