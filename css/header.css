@@ -50,7 +50,6 @@
 .navbar-default .navbar-link:hover {
     color: #8E9B97;
 }
-
 @media (max-width: 767px) {
     .navbar-default .navbar-nav .open .dropdown-menu > li > a {
         color: #F4EBDB;
