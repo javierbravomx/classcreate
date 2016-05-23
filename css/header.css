@@ -62,7 +62,7 @@
         background-color: #537072;
     }
 }
-.autocomplete-suggestions { border: 1px solid #999; background: #F4EBDB; cursor: default; overflow: auto; }
+.autocomplete-suggestions { border: 1px solid #2C4A52; background: #F4EBDB; cursor: default; overflow: auto; }
 .autocomplete-suggestion { padding: 10px 5px; font-size: 1.2em; white-space: nowrap; overflow: hidden; }
 .autocomplete-selected { background: #8E9B97; }
-.autocomplete-suggestions strong { font-weight: normal; color: #537072; }
+.autocomplete-suggestions strong { font-weight: normal; color: #2C4A52; }
