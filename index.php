@@ -76,9 +76,11 @@
 				var asignatura_promedio=field.asignatura_promedio;
 				var asignatura_img=field.asignatura_img;
 
-                if(asignatura_titulo.includes("1") || asignatura_titulo.includes("2")) {
+                /*if(asignatura_titulo.includes("1") || asignatura_titulo.includes("2")) {
                     asignatura_titulo = asignatura_titulo.slice(0,-2);
-                }
+                }*/
+
+
 				var rows =
                 '<a class="col-lg-1 col-md-2 col-sm-3 col-xs-4 thumbnail gallery"' + ' href=".' + asignatura_empresa.toLowerCase() + '-detalle">' +
 				    '<img class="img-responsive"' + ' data-carrera="' + asignatura_carrera.toLowerCase() +
@@ -168,6 +170,9 @@
             $('.gallery').featherlightGallery();
     	});
     });
+	/*
+	*Función más un diccionario de palabras que utiliza el elemento de búsqueda
+	*/
     $("#filter").keyup(function(){
         var filter = $(this).val(), count = 0;
         $(".row a").each(function(){
@@ -179,17 +184,46 @@
             }
         });
     });
-    $("input[type=checkbox]").change(function(){
-    if($('input[name=administracion_checkbox]').is(':checked')){
-            $("[data-carrera='informatica']").fadeout();
-        } else {
-            $("[data-carrera='informatica']").fadeIn();
-        }
+
+	function check_carrera() {
+		if($('#administracion_checkbox').is(':checked')) {
+			$("img[data-carrera*='contaduria'][data-carrera*='administracion']").closest("a").fadeIn();
+			$("img[data-carrera*='informatica'][data-carrera*='administracion']").closest("a").fadeIn();
+			$("img[data-carrera='administracion']").closest("a").fadeIn();
+		}
+		else {
+			$("img[data-carrera='administracion']").closest("a").fadeOut();
+		}
+		if($('#contaduria_checkbox').is(':checked')) {
+			$("img[data-carrera*='administracion'][data-carrera*='contaduria']").closest("a").fadeIn();
+			$("img[data-carrera*='informatica'][data-carrera*='contaduria']").closest("a").fadeIn();
+			$("img[data-carrera='contaduria']").closest("a").fadeIn();
+		}
+		else {
+			$("img[data-carrera='contaduria']").closest("a").fadeOut();
+		}
+		if($('#informatica_checkbox').is(':checked')) {
+			$("img[data-carrera*='administracion'][data-carrera*='informatica']").closest("a").fadeIn();
+			$("img[data-carrera*='contaduria'][data-carrera*='informatica']").closest("a").fadeIn();
+			$("img[data-carrera='informatica']").closest("a").fadeIn();
+		}
+		else {
+			$("img[data-carrera='informatica']").closest("a").fadeOut();
+		}
+
+		if(!$('#administracion_checkbox').is(':checked') && !$('#contaduria_checkbox').is(':checked') && !$('#informatica_checkbox').is(':checked')) {
+			$("img[data-carrera*='administracion']").closest("a").fadeIn();
+			$("img[data-carrera*='contaduria']").closest("a").fadeIn();
+			$("img[data-carrera*='informatica']").closest("a").fadeIn();
+		}
+	}
+	$(":checkbox").change(function(){
+		check_carrera();
     });
     </script>
     <script>
 	/*
-	*Función más un diccionario de palabras que utiliza el elemento de búsqueda
+	*Función para el buscador dinámico
 	*/
     $(function() {
         var availableTags = [
@@ -241,7 +275,7 @@
             { value: "Unilever", label: "Unilever" }
         ];
 		/*
-		*El siguiente código es para iniciar la busqueda con autocompleción
+		*El siguiente código es para iniciar la busqueda con diccionario
 		*/
         $( "#filter" ).devbridgeAutocomplete({
             lookup: availableTags,
