@@ -10,7 +10,7 @@
                         </span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a><input id="administracion_checkbox" type="checkbox"> Administración</a></li>
+                        <li><a><input name="administracion_checkbox" type="checkbox"> Administración</a></li>
                         <li><a><input id="contaduria_checkbox" type="checkbox"> Contaduría</a></li>
                         <li><a><input id="informatica_checkbox" type="checkbox"> Informática</a></li>
                     </form>
