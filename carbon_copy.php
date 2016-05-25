@@ -75,21 +75,11 @@
 	        	var asignatura_salon=field.asignatura_salon;
 				var asignatura_promedio=field.asignatura_promedio;
 				var asignatura_img=field.asignatura_img;
-				/*
-				*Polyfill para la función includes() en internet explorer
-				*/
-				if (!String.prototype.includes) {
-					String.prototype.includes = function() {
-						'use strict';
-						return String.prototype.indexOf.apply(this, arguments) !== -1;
-					};
-				}
-				/*
-				*Remover duplicados del título de la empresa
-				*/
-                if(asignatura_titulo.includes("1") || asignatura_titulo.includes("2")) {
+
+                /*if(asignatura_titulo.includes("1") || asignatura_titulo.includes("2")) {
                     asignatura_titulo = asignatura_titulo.slice(0,-2);
-                }
+                }*/
+
 
 				var rows =
                 '<a class="col-lg-1 col-md-2 col-sm-3 col-xs-4 thumbnail gallery"' + ' href=".' + asignatura_empresa.toLowerCase() + '-detalle">' +
@@ -194,51 +184,33 @@
             }
         });
     });
-	function check_administracion_checked() {
+	function check_carrera() {
 		if($('#administracion_checkbox').is(':checked')) {
 			$("img[data-carrera*='contaduria'][data-carrera*='administracion']").closest("a").fadeIn();
 			$("img[data-carrera*='informatica'][data-carrera*='administracion']").closest("a").fadeIn();
 			$("img[data-carrera='administracion']").closest("a").fadeIn();
 		}
-	}
-	function check_administracion_unchecked() {
-		if(!$('#administracion_checkbox').is(':checked')) {
+		else {
 			$("img[data-carrera='administracion']").closest("a").fadeOut();
 		}
-	}
-	function check_contaduria_checked() {
 		if($('#contaduria_checkbox').is(':checked')) {
 			$("img[data-carrera*='administracion'][data-carrera*='contaduria']").closest("a").fadeIn();
 			$("img[data-carrera*='informatica'][data-carrera*='contaduria']").closest("a").fadeIn();
 			$("img[data-carrera='contaduria']").closest("a").fadeIn();
 		}
-	}
-	function check_contaduria_unchecked() {
-		if(!$('#contaduria_checkbox').is(':checked')) {
+		else {
 			$("img[data-carrera='contaduria']").closest("a").fadeOut();
 		}
-	}
-	function check_informatica_checked() {
 		if($('#informatica_checkbox').is(':checked')) {
 			$("img[data-carrera*='administracion'][data-carrera*='informatica']").closest("a").fadeIn();
 			$("img[data-carrera*='contaduria'][data-carrera*='informatica']").closest("a").fadeIn();
 			$("img[data-carrera='informatica']").closest("a").fadeIn();
 		}
-	}
-	function check_informatica_unchecked() {
-		if(!$('#informatica_checkbox').is(':checked')) {
+		else {
 			$("img[data-carrera='informatica']").closest("a").fadeOut();
 		}
 	}
-	function check_carrera() {
-		check_administracion_unchecked();
-		check_contaduria_unchecked();
-		check_informatica_unchecked();
-		check_administracion_checked();
-		check_contaduria_checked();
-		check_informatica_checked();
-	}
-	function check_lunes_checked() {
+	function check_dia() {
 		if($('#lunes_checkbox').is(':checked')) {
 			$("img[data-dia*='martes'][data-dia*='lunes']").closest("a").fadeIn();
 			$("img[data-dia*='miercoles'][data-dia*='lunes']").closest("a").fadeIn();
@@ -246,13 +218,9 @@
 			$("img[data-dia*='viernes'][data-dia*='lunes']").closest("a").fadeIn();
 			$("img[data-dia='lunes']").closest("a").fadeIn();
 		}
-	}
-	function check_lunes_unchecked() {
-		if(!$('#lunes_checkbox').is(':checked')) {
+		else {
 			$("img[data-dia*='lunes']").closest("a").fadeOut();
 		}
-	}
-	function check_martes_checked() {
 		if($('#martes_checkbox').is(':checked')) {
 			$("img[data-dia*='lunes'][data-dia*='martes']").closest("a").fadeIn();
 			$("img[data-dia*='miercoles'][data-dia*='martes']").closest("a").fadeIn();
@@ -260,13 +228,9 @@
 			$("img[data-dia*='viernes'][data-dia*='martes']").closest("a").fadeIn();
 			$("img[data-dia='martes']").closest("a").fadeIn();
 		}
-	}
-	function check_martes_unchecked() {
-		if(!$('#martes_checkbox').is(':checked')) {
+		else {
 			$("img[data-dia*='martes']").closest("a").fadeOut();
 		}
-	}
-	function check_miercoles_checked() {
 		if($('#miercoles_checkbox').is(':checked')) {
 			$("img[data-dia*='martes'][data-dia*='miercoles']").closest("a").fadeIn();
 			$("img[data-dia*='lunes'][data-dia*='miercoles']").closest("a").fadeIn();
@@ -274,13 +238,9 @@
 			$("img[data-dia*='viernes'][data-dia*='miercoles']").closest("a").fadeIn();
 			$("img[data-dia='miercoles']").closest("a").fadeIn();
 		}
-	}
-	function check_miercoles_unchecked() {
-		if(!$('#miercoles_checkbox').is(':checked')) {
+		else {
 			$("img[data-dia*='miercoles']").closest("a").fadeOut();
 		}
-	}
-	function check_jueves_checked() {
 		if($('#jueves_checkbox').is(':checked')) {
 			$("img[data-dia*='martes'][data-dia*='jueves']").closest("a").fadeIn();
 			$("img[data-dia*='miercoles'][data-dia*='jueves']").closest("a").fadeIn();
@@ -288,13 +248,9 @@
 			$("img[data-dia*='viernes'][data-dia*='jueves']").closest("a").fadeIn();
 			$("img[data-dia='jueves']").closest("a").fadeIn();
 		}
-	}
-	function check_jueves_unchecked() {
-		if(!$('#jueves_checkbox').is(':checked')) {
+		else {
 			$("img[data-dia*='jueves']").closest("a").fadeOut();
 		}
-	}
-	function check_viernes_checked() {
 		if($('#viernes_checkbox').is(':checked')) {
 			$("img[data-dia*='martes'][data-dia*='viernes']").closest("a").fadeIn();
 			$("img[data-dia*='miercoles'][data-dia*='viernes']").closest("a").fadeIn();
@@ -302,24 +258,13 @@
 			$("img[data-dia*='lunes'][data-dia*='viernes']").closest("a").fadeIn();
 			$("img[data-dia='viernes']").closest("a").fadeIn();
 		}
-	}
-	function check_viernes_unchecked() {
-		if(!$('#viernes_checkbox').is(':checked')) {
+		else {
 			$("img[data-dia*='viernes']").closest("a").fadeOut();
 		}
 	}
-	function check_dia() {
-		check_lunes_unchecked();
-		check_martes_unchecked();
-		check_miercoles_unchecked();
-		check_jueves_unchecked();
-		check_viernes_unchecked();
-		check_lunes_checked();
-		check_martes_checked();
-		check_miercoles_checked();
-		check_jueves_checked();
-		check_viernes_checked();
-	}
+
+	var elements = document.querySelectorAll('[data-customerID="22"]');
+
 	function check_hora() {
 		if($('#7_checkbox').is(':checked')) {
 			$("img[data-horario='7:00']").closest("a").fadeIn();

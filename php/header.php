@@ -1,4 +1,3 @@
-<img class="img-responsive" src="img/template/banner.png">
 <div class="container header">
     <nav class="navbar navbar-default">
         <div class="container-fluid">

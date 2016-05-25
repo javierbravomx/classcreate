@@ -1,0 +1,88 @@
+function check_administracion() {
+	if($('#administracion_checkbox').is(':checked')) {
+		$("img[data-carrera*='contaduria']").closest("a").fadeOut();
+		$("img[data-carrera*='informatica']").closest("a").fadeOut();
+		$("img[data-carrera*='contaduria'][data-carrera*='administracion']").closest("a").fadeIn();
+		$("img[data-carrera*='informatica'][data-carrera*='administracion']").closest("a").fadeIn();
+	}
+}
+function check_contaduria() {
+	if($('#contaduria_checkbox').is(':checked')) {
+		$("img[data-carrera*='administracion']").closest("a").fadeOut();
+		$("img[data-carrera*='informatica']").closest("a").fadeOut();
+		$("img[data-carrera*='administracion'][data-carrera*='contaduria']").closest("a").fadeIn();
+		$("img[data-carrera*='informatica'][data-carrera*='contaduria']").closest("a").fadeIn();
+	}
+}
+function check_informatica() {
+	if($('#informatica_checkbox').is(':checked')) {
+		$("img[data-carrera*='administracion']").closest("a").fadeOut();
+		$("img[data-carrera*='contaduria']").closest("a").fadeOut();
+		$("img[data-carrera*='administracion'][data-carrera*='informatica']").closest("a").fadeIn();
+		$("img[data-carrera*='contaduria'][data-carrera*='informatica']").closest("a").fadeIn();
+	}
+}
+
+$(":checkbox").change(function(){
+	if($('#administracion_checkbox').is(':checked')) {
+		check_administracion();
+		check_contaduria();
+		check_informatica();
+	}
+	else {
+		$("img[data-carrera='administracion']").closest("a").fadeOut();
+	}
+	if($('#contaduria_checkbox').is(':checked')) {
+		check_administracion();
+		check_administracion();
+		check_informatica();
+	}
+	else {
+		$("img[data-carrera='contaduria']").closest("a").fadeOut();
+	}
+	if($('#informatica_checkbox').is(':checked')) {
+		check_administracion();
+		check_administracion();
+		check_informatica();
+	}
+	else {
+		$("img[data-carrera='informatica']").closest("a").fadeOut();
+	}
+});
+</script>
+
+
+/*if(!$('#administracion_checkbox').is(':checked') && !$('#contaduria_checkbox').is(':checked') && !$('#informatica_checkbox').is(':checked')) {
+	$("img[data-carrera*='administracion']").closest("a").fadeIn();
+	$("img[data-carrera*='contaduria']").closest("a").fadeIn();
+	$("img[data-carrera*='informatica']").closest("a").fadeIn();
+}*/
+
+
+		if(!$('#administracion_checkbox').is(':checked') && !$('#contaduria_checkbox').is(':checked') && !$('#informatica_checkbox').is(':checked')) {
+			$("img[data-carrera*='']").closest("a").fadeIn();
+		}
+
+
+
+
+		$(":checkbox").change(function(){
+			if($("input[name='carrera']")) {
+				check_carrera();
+			}
+			if($("input[name='dia']")) {
+				check_dia();
+			}
+			if($("input[name='hora']")) {
+				check_hora();
+			}
+			if($("input[name='semestre']")) {
+				check_semestre();
+			}
+			if($("input[name='tipo']")) {
+				check_tipo();
+			}
+			if($("input[name='salon']")) {
+				check_salon();
+			}
+	    });
