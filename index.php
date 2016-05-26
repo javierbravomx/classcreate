@@ -413,6 +413,9 @@
 		}
 	}
 
+    function do_other() {
+        $("img[data-carrera*='administracion'][data-dia*='lunes']").closest("a").fadeIn();
+    }
 	$(":checkbox").change(function(){
 		if($(this).attr("name") == "carrera") {
 			check_carrera();
@@ -431,6 +434,9 @@
 		}
 		if($(this).attr("name") == "salon") {
 			check_salon();
+		}
+        if($(this).attr("name") == "other") {
+			do_other();
 		}
     });
     </script>
