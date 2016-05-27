@@ -9,7 +9,6 @@
                         </span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a><input name="other" id="administracion_and_monday_checkbox" type="checkbox"> Administración</a></li>
                         <li><a><input name="carrera" id="administracion_checkbox" type="checkbox"> Administración</a></li>
                         <li><a><input name="carrera" id="contaduria_checkbox" type="checkbox"> Contaduría</a></li>
                         <li><a><input name="carrera" id="informatica_checkbox" type="checkbox"> Informática</a></li>

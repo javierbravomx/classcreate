@@ -93,13 +93,12 @@
 
 				var rows =
                 '<a class="col-lg-1 col-md-2 col-sm-3 col-xs-4 thumbnail gallery"' + ' href=".' + asignatura_empresa.toLowerCase() + '-detalle">' +
-				    '<img class="img-responsive"' + ' data-string="' +
-					asignatura_carrera.toLowerCase() + "," +
-					asignatura_dia.toLowerCase() + "," +
-					asignatura_salon.toLowerCase() + "," +
-					asignatura_tipo.toLowerCase() + "," +
-					asignatura_hora_inicio.toLowerCase() + "," +
-					asignatura_semestre.toLowerCase() +
+				    '<img class="img-responsive"' + ' data-carrera="' + asignatura_carrera.toLowerCase() +
+                    '" data-dia="' + asignatura_dia.toLowerCase() +
+                    '" data-salon="' + asignatura_salon.toLowerCase() +
+                    '" data-tipo="' + asignatura_tipo.toLowerCase() +
+                    '" data-horario="' + asignatura_hora_inicio.toLowerCase() +
+                    '" data-semestre="' + asignatura_semestre.toLowerCase() +
                     'o" src="' + asignatura_img + '">' +
 				'</a>' +
 				'<div class="' + asignatura_empresa.toLowerCase() + '-detalle">' +
@@ -179,12 +178,6 @@
 				$('.main-row').append(rows);
 	        });
             $('.gallery').featherlightGallery();
-
-/*
-Remember to remove these below
-*/
-			$("img[data-string*='profesionalizante'").closest("a").fadeOut();
-			$("img[data-string*='complementaria'").closest("a").fadeOut();
     	});
     });
 	/*
@@ -202,72 +195,53 @@ Remember to remove these below
         });
     });
 
-	//HYPE!!!
-	$(":checkbox").change(function(){
-		var filter_string = "";
-		var filter_array = [];
 
-		/*
+
+
+    function do_other() {
+		var string1 = "";
+		var string2 = "miercoles";
+		if(($('#miercoles_checkbox').is(':checked'))) {
+			string1 = string1.concat(string2);
+			alert(string1);
+			$("img[data-dia*='" + string1 + "']").closest("a").fadeOut();
+		}
+    }
+	$(":checkbox").change(function(){
+
+		var filter_string = "";
+
 		if($('#administracion_checkbox').is(':checked')) {
 			filter_string = filter_string.concat("administracion");
-			console.log(filter_string);
-		}
-		if(!$('#administracion_checkbox').is(':checked')) {
-			filter_string = filter_string.replace("administracion", "");
-			console.log(filter_string);
-		}
-		if($('#contaduria_checkbox').is(':checked')) {
-			filter_string = filter_string.concat("contaduria");
-			console.log(filter_string);
-		}
-		if(!$('#contaduria_checkbox').is(':checked')) {
-			filter_string = filter_string.replace("contaduria", "");
-			console.log(filter_string);
-		}
-		if($('#informatica_checkbox').is(':checked')) {
-			filter_string = filter_string.concat("informatica");
-			console.log(filter_string);
-		}
-		if(!$('#informatica_checkbox').is(':checked')) {
-			filter_string = filter_string.replace("informatica", "");
-			console.log(filter_string);
-		}
-		*/
-
-		if($('#prof_checkbox').is(':checked')) {
-			filter_string = filter_string.concat("profesionalizante,");
-			filter_array = filter_string.split(',');
-			filter_array.pop();
-		}
-		if(!$('#prof_checkbox').is(':checked')) {
-			filter_string = filter_string.replace("profesionalizante,", "");
-			filter_array = filter_string.split(',');
-			filter_array.pop();
-		}
-		if($('#comp_checkbox').is(':checked')) {
-			filter_string = filter_string.concat("complementaria,");
-			filter_array = filter_string.split(',');
-			filter_array.pop();
-		}
-		if(!$('#comp_checkbox').is(':checked')) {
-			filter_string = filter_string.replace("complementaria,", "");
-			filter_array = filter_string.split(',');
-			filter_array.pop();
 		}
 
-		console.log(filter_array);
-
-		for (var i = 0, length = filter_array.length; i < length; i++) {
-			$("img[data-string*='" + filter_array[i] + "']").closest("a").fadeIn();
-			//$("img*").not("img[data-string*='" + filter_array[i] + "']").closest("a").fadeOut();
-			console.log(filter_array[i]);
+		if($('#5o_checkbox').is(':checked')) {
+			$("img[data-semestre='5o']").closest("a").fadeIn();
 		}
 
 
 
-		//$("img*").not("img[data-string*='" + filter_string + "']").closest("a").fadeOut();
-		//$("img[data-string*='" + filter_string + "']").closest("a").fadeIn();
-
+		if($(this).attr("name") == "carrera") {
+			check_carrera();
+		}
+		if($(this).attr("name") == "dia") {
+			check_dia();
+		}
+		if($(this).attr("name") == "hora") {
+			check_hora();
+		}
+		if($(this).attr("name") == "semestre") {
+			check_semestre();
+		}
+		if($(this).attr("name") == "tipo") {
+			check_tipo();
+		}
+		if($(this).attr("name") == "salon") {
+			check_salon();
+		}
+        if($(this).attr("name") == "other") {
+			do_other();
+		}
     });
     </script>
     <script>
