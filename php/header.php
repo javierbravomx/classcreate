@@ -9,9 +9,9 @@
                         </span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a><input name="carrera" id="administracion_checkbox" type="checkbox"> Administración</a></li>
-                        <li><a><input name="carrera" id="contaduria_checkbox" type="checkbox"> Contaduría</a></li>
-                        <li><a><input name="carrera" id="informatica_checkbox" type="checkbox"> Informática</a></li>
+                        <li><a><input name="carrera" id="administracion_checkbox" type="radio"> Administración</a></li>
+                        <li><a><input name="carrera" id="contaduria_checkbox" type="radio"> Contaduría</a></li>
+                        <li><a><input name="carrera" id="informatica_checkbox" type="radio"> Informática</a></li>
                     </form>
                     </ul>
                 </li>
@@ -24,11 +24,11 @@
                         </span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a><input name="dia" id="lunes_checkbox" type="checkbox"> Lunes</a></li>
-                        <li><a><input name="dia" id="martes_checkbox" type="checkbox"> Martes</a></li>
-                        <li><a><input name="dia" id="miercoles_checkbox" type="checkbox"> Miércoles</a></li>
-                        <li><a><input name="dia" id="jueves_checkbox" type="checkbox"> Jueves</a></li>
-                        <li><a><input name="dia" id="viernes_checkbox" type="checkbox"> Viernes</a></li>
+                        <li><a><input name="dia" id="lunes_checkbox" type="radio"> Lunes</a></li>
+                        <li><a><input name="dia" id="martes_checkbox" type="radio"> Martes</a></li>
+                        <li><a><input name="dia" id="miercoles_checkbox" type="radio"> Miércoles</a></li>
+                        <li><a><input name="dia" id="jueves_checkbox" type="radio"> Jueves</a></li>
+                        <li><a><input name="dia" id="viernes_checkbox" type="radio"> Viernes</a></li>
                     </ul>
                 </li>
             </ul>
@@ -40,13 +40,13 @@
                         </span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a><input name="hora" id="7_checkbox" type="checkbox"> 07:00</a></li>
-                        <li><a><input name="hora" id="9_checkbox" type="checkbox"> 09:00</a></li>
-                        <li><a><input name="hora" id="11_checkbox" type="checkbox"> 11:00</a></li>
-                        <li><a><input name="hora" id="16_checkbox" type="checkbox"> 16:00</a></li>
-                        <li><a><input name="hora" id="17_checkbox" type="checkbox"> 17:00</a></li>
-                        <li><a><input name="hora" id="18_checkbox" type="checkbox"> 18:00</a></li>
-                        <li><a><input name="hora" id="20_checkbox" type="checkbox"> 20:00</a></li>
+                        <li><a><input name="hora" id="7_checkbox" type="radio"> 07:00</a></li>
+                        <li><a><input name="hora" id="9_checkbox" type="radio"> 09:00</a></li>
+                        <li><a><input name="hora" id="11_checkbox" type="radio"> 11:00</a></li>
+                        <li><a><input name="hora" id="16_checkbox" type="radio"> 16:00</a></li>
+                        <li><a><input name="hora" id="17_checkbox" type="radio"> 17:00</a></li>
+                        <li><a><input name="hora" id="18_checkbox" type="radio"> 18:00</a></li>
+                        <li><a><input name="hora" id="20_checkbox" type="radio"> 20:00</a></li>
                     </ul>
                 </li>
             </ul>
@@ -58,9 +58,9 @@
                         </span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a><input name="semestre" id="3o_checkbox" type="checkbox"> 3°</a></li>
-                        <li><a><input name="semestre" id="5o_checkbox" type="checkbox"> 5°</a></li>
-                        <li><a><input name="semestre" id="7o_checkbox" type="checkbox"> 7°</a></li>
+                        <li><a><input name="semestre" id="3o_checkbox" type="radio"> 3°</a></li>
+                        <li><a><input name="semestre" id="5o_checkbox" type="radio"> 5°</a></li>
+                        <li><a><input name="semestre" id="7o_checkbox" type="radio"> 7°</a></li>
                     </ul>
                 </li>
             </ul>
@@ -72,8 +72,8 @@
                         </span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a><input name="tipo" id="prof_checkbox" type="checkbox"> Profesionalizante</a></li>
-                        <li><a><input name="tipo" id="comp_checkbox" type="checkbox"> Complementaria</a></li>
+                        <li><a><input name="tipo" id="prof_checkbox" type="radio"> Profesionalizante</a></li>
+                        <li><a><input name="tipo" id="comp_checkbox" type="radio"> Complementaria</a></li>
                     </ul>
                 </li>
             </ul>
@@ -85,8 +85,8 @@
                         </span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a><input name="salon" id="fca_checkbox" type="checkbox"> FCA</a></li>
-                        <li><a><input name="salon" id="emp_checkbox" type="checkbox"> Empresa</a></li>
+                        <li><a><input name="salon" id="fca_checkbox" type="radio"> FCA</a></li>
+                        <li><a><input name="salon" id="emp_checkbox" type="radio"> Empresa</a></li>
                     </ul>
                 </li>
             </ul>
